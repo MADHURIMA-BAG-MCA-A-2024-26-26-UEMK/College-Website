@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+
+{% block title %}About Us | Raja Narendra Lal Khan Women's College (Autonomous){% endblock %}
+
+{% block content %}
+<!-- Page Banner -->
+<section class="page-banner" aria-label="Page Title Banner">
+  <div class="container">
+    <div class="banner-content">
+      <h1 class="banner-title">About Our College</h1>
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <a href="{{ url_for('index') }}">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+        <span class="active">About Us</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- About & History Section -->
+<section class="about-section-block" id="about-college">
+  <div class="container">
+    <div class="content-image-split">
+      <div>
+        <span class="section-label">Heritage of Excellence</span>
+        <h2 style="font-size: 2rem; color: var(--primary-navy); margin-bottom: 16px;">
+          Empowering Generations of Women Since 1957
+        </h2>
+        <div class="heading-underline-blue" style="margin-left: 0;"></div>
+        <p class="about-body-text">
+          Nestled within the regal environs of the historic Gope Palace in Medinipur, <strong>Raja Narendra Lal Khan Women's College</strong> was consecrated in 1957 by eminent freedom fighters, visionaries, and social reformers dedicated to lighting the torch of women's education in the historic district of Midnapore.
+        </p>
+        <p class="about-body-text">
+          Conferred with prestigious <strong>Autonomous Status by the University Grants Commission (UGC)</strong> and re-accredited with <strong>'A' Grade (Cycle-3) by NAAC</strong>, our institution blends historic architecture with state-of-the-art computational laboratories, research facilities, and forward-looking pedagogical frameworks under the National Education Policy.
+        </p>
+        <div style="display: flex; gap: 24px; margin-top: 20px;">
+          <div style="border-left: 3px solid var(--secondary-blue); padding-left: 14px;">
+            <h3 style="font-size: 1.8rem; color: var(--primary-navy); margin-bottom: 2px;">68+</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Years of Academic Legacy</p>
+          </div>
+          <div style="border-left: 3px solid var(--accent-gold); padding-left: 14px;">
+            <h3 style="font-size: 1.8rem; color: var(--primary-navy); margin-bottom: 2px;">4,200+</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Enrolled Women Scholars</p>
+          </div>
+          <div style="border-left: 3px solid #059669; padding-left: 14px;">
+            <h3 style="font-size: 1.8rem; color: var(--primary-navy); margin-bottom: 2px;">98.4%</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">University Pass Rate</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="split-image-wrap">
+        <img src="{{ url_for('static', filename='images/college-building.jpg') }}" alt="Gope Palace Heritage Structure">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vision & Mission Section -->
+<section class="about-section-block alt-bg" id="vision-mission">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Guiding Principles</span>
+      <h2 class="section-title">Vision &amp; Mission</h2>
+      <div class="heading-underline-blue"></div>
+      <p class="section-subtitle">
+        Our core philosophy is distilled in our timeless Sanskrit motto: <em>"Sa Vidya Ya Vimuktaye"</em> — True education is that which liberates the mind and spirit.
+      </p>
+    </div>
+
+    <div class="vision-mission-cards">
+      <div class="vm-card">
+        <div class="vm-icon">
+          <i class="fa-solid fa-eye"></i>
+        </div>
+        <h3 class="vm-title">Our Vision</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+          To be an internationally recognized center of academic eminence that elevates women into independent thinkers, ethical innovators, and transformative leaders who steer social justice, scientific discovery, and societal well-being.
+        </p>
+      </div>
+
+      <div class="vm-card">
+        <div class="vm-icon" style="background: var(--pastel-green); color: #059669;">
+          <i class="fa-solid fa-bullseye"></i>
+        </div>
+        <h3 class="vm-title">Our Mission</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+          To impart affordable, quality higher education with modern technological competencies, cultivate critical inquiry, instill ethical civic values, and empower young women from all socio-economic strata through inclusive mentorship.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Principal's Message Section -->
+<section class="about-section-block" id="principal-message">
+  <div class="container">
+    <div class="content-image-split reverse">
+      <div class="split-image-wrap" style="box-shadow: var(--shadow-lg);">
+        <img src="{{ url_for('static', filename='images/principal.jpg') }}" alt="Dr. Jayasree Laha, Principal of Raja Narendra Lal Khan Women's College">
+      </div>
+
+      <div class="principal-message-card">
+        <i class="fa-solid fa-quote-right principal-quote-icon"></i>
+        <span class="section-label">Leadership</span>
+        <h2 style="font-size: 1.85rem; color: var(--primary-navy); margin-bottom: 14px;">
+          Principal's Message
+        </h2>
+        <div class="heading-underline-blue" style="margin-left: 0;"></div>
+        
+        <p style="font-size: 0.92rem; color: var(--text-dark); line-height: 1.7; font-style: italic;">
+          "Welcome to Raja Narendra Lal Khan Women's College (Autonomous), a sanctuary where intellect meets character, and ambition is nurtured into triumph. For over six decades, our institution has stood as a bastion of enlightenment for women across Bengal and beyond."
+        </p>
+        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.65;">
+          "We offer an ecosystem where traditional heritage coexists with modern computation, scientific research, and liberal arts. Our autonomous status empowers us to design contemporary syllabi aligned with emerging career opportunities. I warmly invite every aspiring young scholar to embark on this transformative journey with us."
+        </p>
+
+        <div class="principal-signature">
+          <h4 class="principal-name">{{ college.principal }}</h4>
+          <p class="principal-role">Principal &amp; Secretary, Governing Body &bull; M.Sc., Ph.D.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Campus Infrastructure -->
+<section class="about-section-block alt-bg" id="infrastructure">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Campus Amenities</span>
+      <h2 class="section-title">World-Class Infrastructure</h2>
+      <div class="heading-underline-blue"></div>
+      <p class="section-subtitle">
+        A 45-acre sprawling campus equipped with cutting-edge academic, research, and recreational facilities.
+      </p>
+    </div>
+
+    <div class="infra-grid">
+      <div class="infra-card">
+        <div class="infra-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Central Digital Library</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Over 65,000 volumes, automated barcode checkout, INFLIBNET N-LIST e-journal subscriptions, and quiet reading zones.</p>
+      </div>
+
+      <div class="infra-card">
+        <div class="infra-icon" style="background: var(--pastel-purple); color: #7C3AED;"><i class="fa-solid fa-microchip"></i></div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">High-Tech Computing Labs</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Over 200 high-speed computers, dedicated gigabit optical fiber connection, AI/ML clusters, and full-stack development suites.</p>
+      </div>
+
+      <div class="infra-card">
+        <div class="infra-icon" style="background: var(--pastel-green); color: #059669;"><i class="fa-solid fa-flask-vial"></i></div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">DST-FIST Science Laboratories</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Advanced instruments for spectroscopic analysis, molecular biology tissue culture, spectrophotometers, and botanical greenhouse.</p>
+      </div>
+
+      <div class="infra-card">
+        <div class="infra-icon" style="background: var(--pastel-yellow); color: #D97706;"><i class="fa-solid fa-medal"></i></div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Sports Complex &amp; Gym</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Standard 400m athletic track, multi-gym for women scholars, badminton courts, table tennis arena, and basketball courts.</p>
+      </div>
+
+      <div class="infra-card">
+        <div class="infra-icon" style="background: var(--pastel-pink); color: #DB2777;"><i class="fa-solid fa-hotel"></i></div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Secure On-Campus Hostels</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Four well-appointed hostel blocks accommodating 600+ students with 24/7 CCTV surveillance, nutritious dining, and solar water heaters.</p>
+      </div>
+
+      <div class="infra-card">
+        <div class="infra-icon" style="background: var(--pastel-teal); color: #0D9488;"><i class="fa-solid fa-solar-panel"></i></div>
+        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 6px;">Eco-Friendly Green Campus</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Solar roof installations, extensive medicinal plant garden, rainwater harvesting reservoirs, and zero-plastic policies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

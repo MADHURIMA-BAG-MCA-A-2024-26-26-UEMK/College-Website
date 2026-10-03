@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Server Error (500) | Raja Narendra Lal Khan Women's College{% endblock %}
+
+{% block content %}
+<section class="about-section-block" style="text-align: center; padding: 90px 20px;">
+  <div class="container">
+    <div style="max-width: 600px; margin: 0 auto;">
+      <div style="font-size: 5rem; font-weight: 800; color: #EF4444; line-height: 1; font-family: var(--font-heading);">500</div>
+      <h1 style="font-size: 1.85rem; color: var(--primary-navy); margin: 16px 0 10px 0;">Internal Server Error</h1>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 26px;">
+        An unexpected error occurred while processing your request. Our technical staff has been notified.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 14px;">
+        <a href="{{ url_for('index') }}" class="btn-primary-blue">
+          <i class="fa-solid fa-house"></i> Return to Home
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

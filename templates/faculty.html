@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Faculty &amp; Staff Directory | Raja Narendra Lal Khan Women's College{% endblock %}
+
+{% block content %}
+<!-- Page Banner -->
+<section class="page-banner" aria-label="Page Title Banner">
+  <div class="container">
+    <div class="banner-content">
+      <h1 class="banner-title">Our Faculty &amp; Academic Staff</h1>
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <a href="{{ url_for('index') }}">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+        <span class="active">Faculty &amp; Staff</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- Faculty Directory Section -->
+<section class="faculty-section">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Distinguished Educators</span>
+      <h2 class="section-title">Meet Our Dedicated Faculty</h2>
+      <div class="heading-underline-blue"></div>
+      <p class="section-subtitle">
+        Our scholarly professors bring decades of research rigor, pedagogical innovation, and committed mentorship to empower every student.
+      </p>
+    </div>
+
+    <!-- Filter Buttons Bar -->
+    <div class="faculty-filter-bar" role="tablist" aria-label="Department Filter">
+      <button class="faculty-filter-btn active" data-dept="All" role="tab">All Departments</button>
+      {% for dept in departments %}
+        <button class="faculty-filter-btn" data-dept="{{ dept }}" role="tab">{{ dept }}</button>
+      {% endfor %}
+    </div>
+
+    <!-- Faculty Cards Grid -->
+    <div class="faculty-grid">
+      {% for member in faculty_list %}
+        <div class="faculty-card" data-dept="{{ member.department }}">
+          <div class="faculty-photo-wrap">
+            <img src="{{ url_for('static', filename=member.photo) }}" alt="{{ member.name }}, {{ member.designation }}" loading="lazy">
+          </div>
+          <div class="faculty-details">
+            <h3 class="faculty-name">{{ member.name }}</h3>
+            <div class="faculty-role">{{ member.designation }}</div>
+            <span class="faculty-dept-badge">{{ member.department }}</span>
+            <div class="faculty-qual">
+              <i class="fa-solid fa-graduation-cap" style="color: var(--secondary-blue); margin-right: 4px;"></i>
+              {{ member.qualification }}
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 8px;">
+              <i class="fa-solid fa-book-open" style="color: var(--accent-gold); margin-right: 4px;"></i>
+              <strong>Research:</strong> {{ member.research }}
+            </div>
+            <div class="faculty-email-row">
+              <i class="fa-regular fa-envelope"></i>
+              <a href="mailto:{{ member.email }}" style="color: var(--text-muted);">{{ member.email }}</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

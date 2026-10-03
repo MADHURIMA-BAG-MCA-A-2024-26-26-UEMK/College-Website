@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+
+{% block title %}Admission 2026-27 | Raja Narendra Lal Khan Women's College (Autonomous){% endblock %}
+
+{% block content %}
+<!-- Page Banner -->
+<section class="page-banner" aria-label="Page Title Banner">
+  <div class="container">
+    <div class="banner-content">
+      <h1 class="banner-title">Admission 2026-2027</h1>
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <a href="{{ url_for('index') }}">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+        <span class="active">Admission</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- Admission Steps & Process Section -->
+<section class="admission-section" id="admission-process">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Admissions Gateway</span>
+      <h2 class="section-title">Four-Step Admission Process</h2>
+      <div class="heading-underline-blue"></div>
+      <p class="section-subtitle">
+        Transparent, merit-based admission procedure adhering to University Grants Commission and West Bengal Higher Education Department guidelines.
+      </p>
+    </div>
+
+    <!-- Step Cards -->
+    <div class="admission-steps-row">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Online Application</h3>
+        <p class="step-desc">
+          Fill in the centralized online application form, select desired undergraduate/postgraduate programs, and upload scanned documents.
+        </p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Merit List Publication</h3>
+        <p class="step-desc">
+          Comprehensive provisional and final subject-wise merit lists are published based strictly on marks scored in qualifying examinations.
+        </p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Document Verification</h3>
+        <p class="step-desc">
+          Shortlisted candidates undergo in-person verification of original certificates, mark sheets, and caste/EWS credentials at the college desk.
+        </p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h3 class="step-title">Fee Payment &amp; Induction</h3>
+        <p class="step-desc">
+          Secure admission confirmation by paying the semester fees online, followed by the collegiate orientation program.
+        </p>
+      </div>
+    </div>
+
+    <!-- Eligibility Criteria Table -->
+    <div id="eligibility" style="margin-top: 50px;">
+      <h2 style="font-size: 1.6rem; color: var(--primary-navy); margin-bottom: 8px;">
+        <i class="fa-solid fa-graduation-cap" style="color: var(--secondary-blue);"></i> Eligibility Criteria
+      </h2>
+      <div class="heading-underline-blue" style="margin-left: 0;"></div>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+        Minimum qualifications for admission into major degree programs for session 2026-27:
+      </p>
+
+      <table class="academic-table" aria-label="Eligibility Criteria by Course">
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Level</th>
+            <th>Duration</th>
+            <th>Minimum Qualification Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>BCA</strong></td>
+            <td>Undergraduate</td>
+            <td>3 Years</td>
+            <td>10+2 Higher Secondary in any stream with Mathematics / Computer Science / Statistics (Min. 50% aggregate).</td>
+          </tr>
+          <tr>
+            <td><strong>MCA</strong></td>
+            <td>Postgraduate</td>
+            <td>2 Years</td>
+            <td>BCA / B.Sc in Comp Sci / IT or Bachelor's with Mathematics at 10+2 or degree level (Min. 50% + valid JECA).</td>
+          </tr>
+          <tr>
+            <td><strong>B.Ed</strong></td>
+            <td>Professional (NCTE)</td>
+            <td>2 Years</td>
+            <td>Bachelor's or Master's degree in Sciences/Humanities with minimum 50% marks (45% for SC/ST/PWD).</td>
+          </tr>
+          <tr>
+            <td><strong>B.A. (Honours)</strong></td>
+            <td>Undergraduate (NEP)</td>
+            <td>4 Years</td>
+            <td>10+2 passed from recognized Council/Board with minimum 45% aggregate and 50% in chosen major discipline.</td>
+          </tr>
+          <tr>
+            <td><strong>B.Sc (Honours)</strong></td>
+            <td>Undergraduate (NEP)</td>
+            <td>4 Years</td>
+            <td>10+2 passed in Science stream with Physics, Chemistry, Math/Biology (Min. 50% aggregate &amp; subject cut-off).</td>
+          </tr>
+          <tr>
+            <td><strong>Other Diploma/PG</strong></td>
+            <td>PG / Vocational</td>
+            <td>1 to 2 Years</td>
+            <td>Graduation / 10+2 passed depending on specialized certification course guidelines.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Required Documents & Important Dates Grid -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;" id="fees-structure">
+      <!-- Required Documents -->
+      <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--border-radius-md); padding: 26px; box-shadow: var(--shadow-sm);">
+        <h3 style="font-size: 1.25rem; color: var(--primary-navy); margin-bottom: 14px;">
+          <i class="fa-solid fa-file-circle-check" style="color: #059669; margin-right: 6px;"></i> Required Documents Checklist
+        </h3>
+        <ul style="display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; color: var(--text-dark);">
+          <li><i class="fa-solid fa-check" style="color: var(--secondary-blue); margin-right: 8px;"></i> 10th Standard Admit Card / Birth Certificate (Age Proof)</li>
+          <li><i class="fa-solid fa-check" style="color: var(--secondary-blue); margin-right: 8px;"></i> 10+2 Marksheet &amp; Passing Certificate</li>
+          <li><i class="fa-solid fa-check" style="color: var(--secondary-blue); margin-right: 8px;"></i> Graduation Marksheet (For MCA, B.Ed, M.A./M.Sc applicants)</li>
+          <li><i class="fa-solid fa-check" style="color: var(--secondary-blue); margin-right: 8px;"></i> Caste / EWS / PWD Certificate (if applicable)</li>
+          <li><i class="fa-solid fa-check" style="color: var(--secondary-blue); margin-right: 8px;"></i> Recent passport size photographs (scanned copy &amp; 4 prints)</li>
+          <li><i class="fa-solid fa-check" style="color: var(--secondary-blue); margin-right: 8px;"></i> Aadhaar Card photocopy</li>
+          <li><i class="fa-solid fa-check" style="color: var(--secondary-blue); margin-right: 8px;"></i> School/College Leaving &amp; Migration Certificate</li>
+        </ul>
+      </div>
+
+      <!-- Important Dates -->
+      <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--border-radius-md); padding: 26px; box-shadow: var(--shadow-sm);">
+        <h3 style="font-size: 1.25rem; color: var(--primary-navy); margin-bottom: 14px;">
+          <i class="fa-solid fa-calendar-days" style="color: #D97706; margin-right: 6px;"></i> Important Admission Dates (2026-27)
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.88rem;">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border-color); padding-bottom: 8px;">
+            <span>Online Portal Opening:</span>
+            <strong>October 15, 2026</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border-color); padding-bottom: 8px;">
+            <span>Last Date of Online Submission:</span>
+            <strong>November 10, 2026</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border-color); padding-bottom: 8px;">
+            <span>Provisional Merit List Release:</span>
+            <strong>November 15, 2026</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border-color); padding-bottom: 8px;">
+            <span>Final Merit List &amp; E-Counseling:</span>
+            <strong>November 20, 2026</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border-color); padding-bottom: 8px;">
+            <span>Commencement of Classes:</span>
+            <strong>December 01, 2026</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Online Admission Enquiry Form -->
+    <div id="enquiry-form" style="margin-top: 55px;">
+      <div class="form-card-container">
+        <div style="text-align: center; margin-bottom: 30px;">
+          <span class="section-label">Get in Touch With Admissions Cell</span>
+          <h2 style="font-size: 1.85rem; color: var(--primary-navy); margin-bottom: 6px;">
+            Online Admission Enquiry Form
+          </h2>
+          <div class="heading-underline-blue"></div>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Have questions regarding eligibility, seat availability, or fee payment plans? Submit your enquiry below and our academic admissions officer will assist you.
+          </p>
+        </div>
+
+        <form action="{{ url_for('admission') }}" method="POST" class="needs-validation" novalidate>
+          <div class="form-grid-two">
+            <!-- Full Name -->
+            <div class="form-group">
+              <label class="form-label" for="full_name">Full Name <span class="req">*</span></label>
+              <input type="text" id="full_name" name="full_name" class="form-control" placeholder="e.g. Madhurima Bag" value="{{ form_data.get('full_name', '') }}" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address <span class="req">*</span></label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="e.g. student@example.com" value="{{ form_data.get('email', '') }}" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number (10 Digits) <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" class="form-control" placeholder="e.g. 9876543210" value="{{ form_data.get('phone', '') }}" required>
+            </div>
+
+            <!-- Desired Course -->
+            <div class="form-group">
+              <label class="form-label" for="course">Desired Course <span class="req">*</span></label>
+              <select id="course" name="course" class="form-control" required>
+                <option value="" disabled {% if not form_data.get('course') %}selected{% endif %}>Select Course...</option>
+                <option value="bca" {% if form_data.get('course') == 'bca' %}selected{% endif %}>BCA &mdash; Bachelor of Computer Applications</option>
+                <option value="mca" {% if form_data.get('course') == 'mca' %}selected{% endif %}>MCA &mdash; Master of Computer Applications</option>
+                <option value="bed" {% if form_data.get('course') == 'bed' %}selected{% endif %}>B.Ed &mdash; Bachelor of Education</option>
+                <option value="ba" {% if form_data.get('course') == 'ba' %}selected{% endif %}>BA &mdash; Bachelor of Arts</option>
+                <option value="bsc" {% if form_data.get('course') == 'bsc' %}selected{% endif %}>B.Sc &mdash; Bachelor of Science</option>
+                <option value="other-courses" {% if form_data.get('course') == 'other-courses' %}selected{% endif %}>Other Courses / Diploma Certifications</option>
+              </select>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="form-group">
+              <label class="form-label" for="dob">Date of Birth</label>
+              <input type="date" id="dob" name="dob" class="form-control" value="{{ form_data.get('dob', '') }}">
+            </div>
+
+            <!-- Address / City -->
+            <div class="form-group">
+              <label class="form-label" for="address">Postal Address / District</label>
+              <input type="text" id="address" name="address" class="form-control" placeholder="e.g. Medinipur, Paschim Medinipur" value="{{ form_data.get('address', '') }}">
+            </div>
+
+            <!-- Message / Query -->
+            <div class="form-group full-width">
+              <label class="form-label" for="message">Your Query / Specialization Interest</label>
+              <textarea id="message" name="message" class="form-control" rows="4" placeholder="Mention your 10+2 stream, marks percentage, or any questions about hostel and scholarships...">{{ form_data.get('message', '') }}</textarea>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 15px;">
+            <button type="submit" class="btn-primary-blue" style="padding: 12px 36px; font-size: 1rem;">
+              Submit Enquiry <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,385 @@
+{% extends "base.html" %}
+
+{% block title %}Raja Narendra Lal Khan Women's College | Medinipur, West Bengal{% endblock %}
+
+{% block content %}
+<!-- =========================================================================
+     3. HERO SECTION & CAROUSEL
+     ========================================================================= -->
+<section class="hero-section" aria-label="College Highlights Carousel">
+  <div class="carousel-container" id="heroCarousel">
+    
+    <!-- Slide 1: College Campus -->
+    <div class="carousel-slide active" style="background-image: url('{{ url_for('static', filename='images/college-building.jpg') }}');" role="region" aria-label="Slide 1 of 3: College Campus">
+      <div class="hero-overlay">
+        <div class="container">
+          <div class="hero-content">
+            <span class="hero-badge">
+              <i class="fa-solid fa-award"></i> Autonomous &bull; NAAC Re-Accredited 'A' Grade
+            </span>
+            <h1 class="hero-title">
+              Welcome to<br>
+              Raja Narendra Lal Khan<br>
+              Women's College
+            </h1>
+            <p class="hero-subtitle">
+              Education &bull; Excellence &bull; Empowerment
+            </p>
+            <div class="hero-buttons">
+              <a href="{{ url_for('admission') }}" class="btn-primary-blue">
+                Admission Enquiry <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="{{ url_for('about') }}" class="btn-outline-white">
+                Learn More <i class="fa-solid fa-compass"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Academic Excellence -->
+    <div class="carousel-slide" style="background-image: url('{{ url_for('static', filename='images/academic-excellence.jpg') }}');" role="region" aria-label="Slide 2 of 3: Academic Excellence">
+      <div class="hero-overlay">
+        <div class="container">
+          <div class="hero-content">
+            <span class="hero-badge">
+              <i class="fa-solid fa-graduation-cap"></i> Premier Higher Education Since 1957
+            </span>
+            <h2 class="hero-title">
+              Fostering Scholarly Rigor<br>
+              and Innovative Minds
+            </h2>
+            <p class="hero-subtitle">
+              Advanced Research &bull; Automated Digital Library &bull; Dedicated Faculty
+            </p>
+            <div class="hero-buttons">
+              <a href="{{ url_for('courses') }}" class="btn-primary-blue">
+                Explore Programs <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="{{ url_for('faculty') }}" class="btn-outline-white">
+                Meet Our Faculty <i class="fa-solid fa-user-tie"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Student Activities -->
+    <div class="carousel-slide" style="background-image: url('{{ url_for('static', filename='images/student-activities.jpg') }}');" role="region" aria-label="Slide 3 of 3: Student Activities">
+      <div class="hero-overlay">
+        <div class="container">
+          <div class="hero-content">
+            <span class="hero-badge">
+              <i class="fa-solid fa-champagne-glasses"></i> Holistic Student Life &amp; Leadership
+            </span>
+            <h2 class="hero-title">
+              Celebrating Culture,<br>
+              Athletics &amp; Empowerment
+            </h2>
+            <p class="hero-subtitle">
+              Dynamic Campus Culture &bull; State-Level Sports &bull; Cultural Heritage
+            </p>
+            <div class="hero-buttons">
+              <a href="{{ url_for('gallery') }}" class="btn-primary-blue">
+                View Campus Gallery <i class="fa-solid fa-images"></i>
+              </a>
+              <a href="{{ url_for('admission') }}" class="btn-outline-white">
+                Apply for 2026-27 <i class="fa-solid fa-file-signature"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Previous and Next Navigation Arrows -->
+    <button class="carousel-btn prev-btn" id="heroPrevBtn" aria-label="Previous Slide">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="carousel-btn next-btn" id="heroNextBtn" aria-label="Next Slide">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- Carousel Indicator Dots -->
+    <div class="carousel-indicators">
+      <button class="carousel-dot active" aria-label="Slide 1"></button>
+      <button class="carousel-dot" aria-label="Slide 2"></button>
+      <button class="carousel-dot" aria-label="Slide 3"></button>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================================
+     4. ABOUT OUR COLLEGE & 5. NOTICE BOARD (THREE-COLUMN SECTION)
+     ========================================================================= -->
+<section class="about-notice-section" aria-label="About College and Latest Notices">
+  <div class="container">
+    <div class="three-column-grid">
+
+      <!-- Column 1: About Our College Text -->
+      <div class="about-text-column">
+        <span class="section-label">Institutional Profile</span>
+        <h2 class="section-heading-left">About Our College</h2>
+        <p class="about-body-text">
+          Raja Narendra Lal Khan Women's College is committed to providing quality education, fostering intellectual growth and empowering young women to build a brighter future. The college offers a supportive environment for academic excellence, skill development and holistic growth.
+        </p>
+        <p class="about-body-text" style="font-size: 0.88rem; color: var(--text-light); margin-bottom: 20px;">
+          Established in 1957 on the historic grounds of the Gope Palace, our institution stands as an emblem of academic distinction, women's liberation, and cultural heritage in West Bengal.
+        </p>
+        <a href="{{ url_for('about') }}" class="btn-read-more" title="Read comprehensive history and vision">
+          Read More <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Column 2: College Building Image -->
+      <div class="about-image-column">
+        <img src="{{ url_for('static', filename='images/college-building.jpg') }}" alt="Raja Narendra Lal Khan Women's College Historic Gope Palace Building" class="about-campus-img">
+        <div class="image-tag-badge">
+          <i class="fa-solid fa-landmark"></i> Gope Palace Heritage Campus
+        </div>
+      </div>
+
+      <!-- Column 3: Notice Board Card -->
+      <div class="notice-board-card" aria-label="Official College Notice Board">
+        <div class="notice-card-header">
+          <h3 class="notice-card-title">
+            <i class="fa-solid fa-bullhorn" style="color: var(--accent-gold);"></i> Notice Board
+          </h3>
+          <a href="{{ url_for('notices') }}" class="notice-view-all" title="View all official notices">
+            View All <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="notice-list-scroll">
+          {% for notice in notices %}
+            <a href="{{ url_for('notice_detail', notice_id=notice.id) }}" class="notice-item" title="{{ notice.title }}">
+              <!-- Date Box with Colorful Badges -->
+              <div class="date-box {{ notice.color_class }}">
+                <span class="day">{{ notice.date_day }}</span>
+                <span class="month">{{ notice.date_month }}</span>
+              </div>
+              <div class="notice-info">
+                <h4 class="notice-headline">
+                  {{ notice.title }}
+                  {% if notice.is_new %}
+                    <span class="badge-new">NEW</span>
+                  {% endif %}
+                </h4>
+                <p class="notice-brief">{{ notice.summary }}</p>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     6. COURSES SECTION (LIGHT BLUE BACKGROUND & 6 CARDS)
+     ========================================================================= -->
+<section class="courses-section" aria-label="Academic Courses Offered">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Academic Offerings</span>
+      <h2 class="section-title">Our Courses</h2>
+      <div class="heading-underline-blue"></div>
+      <p class="section-subtitle">
+        Empowering young women through contemporary undergraduate, postgraduate, and vocational curriculums affiliated to Vidyasagar University.
+      </p>
+    </div>
+
+    <!-- Six course cards in one row on desktop -->
+    <div class="courses-grid-six">
+      
+      <!-- 1. BCA -->
+      <a href="{{ url_for('course_detail', course_name='bca') }}" class="course-card-pastel card-bca" title="Bachelor of Computer Applications">
+        <div>
+          <div class="course-icon-wrap">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <h3 class="course-title-tag">BCA</h3>
+          <p class="course-desc-text">
+            Bachelor of Computer Applications
+          </p>
+        </div>
+        <span class="course-explore-link">
+          Explore <i class="fa-solid fa-arrow-right"></i>
+        </span>
+      </a>
+
+      <!-- 2. MCA -->
+      <a href="{{ url_for('course_detail', course_name='mca') }}" class="course-card-pastel card-mca" title="Master of Computer Applications">
+        <div>
+          <div class="course-icon-wrap">
+            <i class="fa-solid fa-server"></i>
+          </div>
+          <h3 class="course-title-tag">MCA</h3>
+          <p class="course-desc-text">
+            Master of Computer Applications
+          </p>
+        </div>
+        <span class="course-explore-link">
+          Explore <i class="fa-solid fa-arrow-right"></i>
+        </span>
+      </a>
+
+      <!-- 3. B.Ed -->
+      <a href="{{ url_for('course_detail', course_name='bed') }}" class="course-card-pastel card-bed" title="Bachelor of Education">
+        <div>
+          <div class="course-icon-wrap">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <h3 class="course-title-tag">B.Ed</h3>
+          <p class="course-desc-text">
+            Bachelor of Education (NCTE Approved)
+          </p>
+        </div>
+        <span class="course-explore-link">
+          Explore <i class="fa-solid fa-arrow-right"></i>
+        </span>
+      </a>
+
+      <!-- 4. BA -->
+      <a href="{{ url_for('course_detail', course_name='ba') }}" class="course-card-pastel card-ba" title="Bachelor of Arts">
+        <div>
+          <div class="course-icon-wrap">
+            <i class="fa-solid fa-book-open-reader"></i>
+          </div>
+          <h3 class="course-title-tag">BA</h3>
+          <p class="course-desc-text">
+            Bachelor of Arts (Honours &amp; Multidisciplinary)
+          </p>
+        </div>
+        <span class="course-explore-link">
+          Explore <i class="fa-solid fa-arrow-right"></i>
+        </span>
+      </a>
+
+      <!-- 5. B.Sc -->
+      <a href="{{ url_for('course_detail', course_name='bsc') }}" class="course-card-pastel card-bsc" title="Bachelor of Science">
+        <div>
+          <div class="course-icon-wrap">
+            <i class="fa-solid fa-flask-vial"></i>
+          </div>
+          <h3 class="course-title-tag">B.Sc</h3>
+          <p class="course-desc-text">
+            Bachelor of Science (Honours &amp; Research)
+          </p>
+        </div>
+        <span class="course-explore-link">
+          Explore <i class="fa-solid fa-arrow-right"></i>
+        </span>
+      </a>
+
+      <!-- 6. Other Courses -->
+      <a href="{{ url_for('course_detail', course_name='other-courses') }}" class="course-card-pastel card-other" title="Various UG and PG Courses">
+        <div>
+          <div class="course-icon-wrap">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <h3 class="course-title-tag">Other Courses</h3>
+          <p class="course-desc-text">
+            Various Undergraduate and Postgraduate Courses
+          </p>
+        </div>
+        <span class="course-explore-link">
+          Explore <i class="fa-solid fa-arrow-right"></i>
+        </span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     7. QUICK ACCESS SECTION (4 LARGE IMAGE-BASED FEATURE CARDS)
+     ========================================================================= -->
+<section class="quick-access-section" aria-label="Campus Quick Access Portals">
+  <div class="container">
+    <div class="quick-access-grid">
+
+      <!-- Card 1: Our Faculty -->
+      <a href="{{ url_for('faculty') }}" class="quick-feature-card" title="Meet our faculty">
+        <div class="quick-card-bg" style="background-image: url('{{ url_for('static', filename='images/quick-faculty.jpg') }}');"></div>
+        <div class="quick-card-overlay">
+          <div class="quick-card-top">
+            <div class="quick-icon-badge">
+              <i class="fa-solid fa-users-line"></i>
+            </div>
+            <div class="quick-circle-arrow">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <h3 class="quick-card-title">Our Faculty</h3>
+          <p class="quick-card-text">
+            Meet our experienced and dedicated faculty members.
+          </p>
+        </div>
+      </a>
+
+      <!-- Card 2: Gallery -->
+      <a href="{{ url_for('gallery') }}" class="quick-feature-card" title="Explore college gallery">
+        <div class="quick-card-bg" style="background-image: url('{{ url_for('static', filename='images/quick-gallery.jpg') }}');"></div>
+        <div class="quick-card-overlay">
+          <div class="quick-card-top">
+            <div class="quick-icon-badge">
+              <i class="fa-solid fa-images"></i>
+            </div>
+            <div class="quick-circle-arrow">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <h3 class="quick-card-title">Gallery</h3>
+          <p class="quick-card-text">
+            Explore our campus activities and events.
+          </p>
+        </div>
+      </a>
+
+      <!-- Card 3: Contact Us -->
+      <a href="{{ url_for('contact') }}" class="quick-feature-card" title="Contact the college office">
+        <div class="quick-card-bg" style="background-image: url('{{ url_for('static', filename='images/quick-contact.jpg') }}');"></div>
+        <div class="quick-card-overlay">
+          <div class="quick-card-top">
+            <div class="quick-icon-badge">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <div class="quick-circle-arrow">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <h3 class="quick-card-title">Contact Us</h3>
+          <p class="quick-card-text">
+            Get in touch with us for any queries.
+          </p>
+        </div>
+      </a>
+
+      <!-- Card 4: Find Us -->
+      <a href="{{ url_for('contact') }}#campus-location-map" class="quick-feature-card" title="Find us on Google Maps">
+        <div class="quick-card-bg" style="background-image: url('{{ url_for('static', filename='images/quick-map.jpg') }}');"></div>
+        <div class="quick-card-overlay">
+          <div class="quick-card-top">
+            <div class="quick-icon-badge">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <div class="quick-circle-arrow">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+          <h3 class="quick-card-title">Find Us</h3>
+          <p class="quick-card-text">
+            Our location on Google Map.
+          </p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

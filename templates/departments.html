@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Academic Departments | Raja Narendra Lal Khan Women's College{% endblock %}
+
+{% block content %}
+<!-- Page Banner -->
+<section class="page-banner" aria-label="Page Title Banner">
+  <div class="container">
+    <div class="banner-content">
+      <h1 class="banner-title">Academic Departments</h1>
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <a href="{{ url_for('index') }}">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+        <span class="active">Departments</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- Departments Grid Section -->
+<section class="departments-section">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Faculties of Study</span>
+      <h2 class="section-title">Explore Our Academic Departments</h2>
+      <div class="heading-underline-blue"></div>
+      <p class="section-subtitle">
+        Our multidisciplinary departments combine research excellence, experienced faculty guidance, state-of-the-art laboratories, and vibrant scholarly communities.
+      </p>
+    </div>
+
+    <div class="departments-grid">
+      {% for dept in departments %}
+        <div class="dept-card" id="{{ dept.id }}">
+          <div class="dept-top-row">
+            <div class="dept-icon-circle" style="background-color: {{ dept.bg_color }}; color: {{ dept.color }};">
+              <i class="{{ dept.icon }}"></i>
+            </div>
+            <div>
+              <h3 class="dept-title">{{ dept.name }}</h3>
+              <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Estd. {{ dept.established }}</span>
+            </div>
+          </div>
+
+          <div class="dept-hod-info">
+            <i class="fa-solid fa-user-tie" style="color: var(--secondary-blue); margin-right: 4px;"></i>
+            <strong>HOD:</strong> {{ dept.hod }}
+          </div>
+
+          <p class="dept-desc-text">
+            {{ dept.desc }}
+          </p>
+
+          <div class="dept-facilities-list">
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary-navy); margin-bottom: 4px; text-transform: uppercase;">Key Facilities:</div>
+            {% for fac in dept.facilities %}
+              <div class="dept-facility-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>{{ fac }}</span>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="dept-footer-action">
+            <span style="font-size: 0.78rem; font-weight: 600; color: var(--secondary-blue);">
+              <i class="fa-solid fa-users" style="margin-right: 4px;"></i> {{ dept.faculty_count }} Faculty Members
+            </span>
+            <a href="{{ url_for('faculty') }}" class="btn-read-more" style="padding: 5px 12px; font-size: 0.8rem;" title="View Faculty in {{ dept.name }}">
+              View Faculty <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

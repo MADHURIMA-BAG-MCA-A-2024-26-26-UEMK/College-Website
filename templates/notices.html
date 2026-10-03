@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Notice Board &amp; Circulars | Raja Narendra Lal Khan Women's College{% endblock %}
+
+{% block content %}
+<!-- Page Banner -->
+<section class="page-banner" aria-label="Page Title Banner">
+  <div class="container">
+    <div class="banner-content">
+      <h1 class="banner-title">Official Notice Board</h1>
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <a href="{{ url_for('index') }}">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+        <span class="active">Notice Board</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- Notice Board Section -->
+<section class="notices-page-section">
+  <div class="container">
+    
+    <!-- Filter and Live Search Header -->
+    <div class="notices-filter-header">
+      <div class="notices-category-nav" role="tablist" aria-label="Notice Categories">
+        {% for cat in categories %}
+          <button class="notice-cat-btn {% if selected_category == cat or (not selected_category and cat == 'All') %}active{% endif %}" data-category="{{ cat }}" role="tab">
+            {{ cat }}
+          </button>
+        {% endfor %}
+      </div>
+
+      <!-- Live Search Box -->
+      <div class="search-input-box">
+        <input type="text" id="noticeSearchInput" placeholder="Search notices, exams, events..." value="{{ search_query }}" aria-label="Search Notices">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+
+    <!-- Notices Listing -->
+    <div class="notices-full-list" id="noticesFullList">
+      {% for notice in all_notices %}
+        <div class="notice-page-item" data-category="{{ notice.category }}">
+          <div style="display: flex; align-items: flex-start; gap: 18px;">
+            <!-- Date Box -->
+            <div class="date-box {{ notice.color_class }}">
+              <span class="day">{{ notice.date_day }}</span>
+              <span class="month">{{ notice.date_month }}</span>
+            </div>
+
+            <!-- Notice Info -->
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap;">
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--secondary-blue); background: var(--pastel-blue); padding: 2px 8px; border-radius: 4px;">
+                  {{ notice.category }}
+                </span>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">
+                  Ref: RNLK/NOT/{{ notice.date_year }}/0{{ notice.id }}
+                </span>
+                {% if notice.is_new %}
+                  <span class="badge-new">NEW</span>
+                {% endif %}
+              </div>
+
+              <h2 style="font-size: 1.12rem; font-weight: 700; color: var(--primary-navy); margin-bottom: 6px; line-height: 1.3;">
+                {{ notice.title }}
+              </h2>
+
+              <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 0; line-height: 1.5;">
+                {{ notice.summary }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
+            <a href="{{ url_for('notice_detail', notice_id=notice.id) }}" class="btn-read-more" style="padding: 7px 16px; font-size: 0.85rem;" title="View official circular">
+              View Notice <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#" class="btn-outline-white" style="color: var(--text-dark); border-color: var(--border-color); padding: 7px 12px; font-size: 0.85rem;" onclick="alert('Downloading official signed circular for Notice #{{ notice.id }} (PDF)...'); return false;" title="Download PDF circular">
+              <i class="fa-solid fa-download"></i>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- No Results Placeholder -->
+    <div id="noticeNoResults" style="display: none; text-align: center; padding: 60px 20px; background: var(--light-bg); border-radius: var(--border-radius-md); margin-top: 20px;">
+      <i class="fa-solid fa-folder-open" style="font-size: 2.5rem; color: var(--text-light); margin-bottom: 12px;"></i>
+      <h3 style="font-size: 1.25rem; color: var(--primary-navy); margin-bottom: 6px;">No Matching Notices Found</h3>
+      <p style="font-size: 0.88rem; color: var(--text-muted);">Try adjusting your search keywords or clear the category filters to browse all circulars.</p>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

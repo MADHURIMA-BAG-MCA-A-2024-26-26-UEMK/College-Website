@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us &amp; Location | Raja Narendra Lal Khan Women's College{% endblock %}
+
+{% block content %}
+<!-- Page Banner -->
+<section class="page-banner" aria-label="Page Title Banner">
+  <div class="container">
+    <div class="banner-content">
+      <h1 class="banner-title">Contact &amp; Campus Location</h1>
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <a href="{{ url_for('index') }}">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+        <span class="active">Contact Us</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-layout-grid">
+      
+      <!-- Left Column: Official Contact Details & Map -->
+      <div>
+        <div style="margin-bottom: 24px;">
+          <span class="section-label">Institutional Secretariat</span>
+          <h2 style="font-size: 1.85rem; color: var(--primary-navy); margin-bottom: 8px;">
+            Get in Touch With Us
+          </h2>
+          <div class="heading-underline-blue" style="margin-left: 0;"></div>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Reach out to our administrative offices, admissions counselors, or student welfare desk with any queries or campus visit requests.
+          </p>
+        </div>
+
+        <div class="contact-info-cards">
+          <!-- Address -->
+          <div class="contact-info-card">
+            <div class="contact-icon-bubble">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <div class="contact-card-label">Campus Address</div>
+              <div class="contact-card-value">
+                Raja Narendra Lal Khan Women's College (Autonomous)<br>
+                Gope Palace, Medinipur, Paschim Medinipur<br>
+                West Bengal &ndash; 721102, India
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone Numbers -->
+          <div class="contact-info-card">
+            <div class="contact-icon-bubble" style="background: var(--pastel-green); color: #059669;">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <div class="contact-card-label">Phone &amp; Helpline</div>
+              <div class="contact-card-value">
+                <a href="tel:{{ college.phone }}" style="color: var(--primary-navy);">{{ college.phone }}</a><br>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Office EPABX: 03222-275426</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email Addresses -->
+          <div class="contact-info-card">
+            <div class="contact-icon-bubble" style="background: var(--pastel-purple); color: #7C3AED;">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <div class="contact-card-label">Email Communications</div>
+              <div class="contact-card-value">
+                <a href="mailto:{{ college.email }}" style="color: var(--primary-navy);">{{ college.email }}</a><br>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Admissions: admissions@college.ac.in</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Working Hours -->
+          <div class="contact-info-card">
+            <div class="contact-icon-bubble" style="background: var(--pastel-yellow); color: #D97706;">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <div>
+              <div class="contact-card-label">Office Working Hours</div>
+              <div class="contact-card-value">
+                Monday &ndash; Saturday: 10:00 AM &ndash; 5:00 PM<br>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Cash Counter: 10:30 AM &ndash; 3:00 PM (Closed Sundays &amp; Public Holidays)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Media Channels -->
+        <div style="margin-top: 24px;">
+          <h3 style="font-size: 1rem; color: var(--primary-navy); margin-bottom: 10px;">Official Social Media Channels</h3>
+          <div style="display: flex; gap: 12px;">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-footer" style="background: var(--primary-navy);" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-footer" style="background: var(--primary-navy);" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-footer" style="background: var(--primary-navy);" aria-label="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-footer" style="background: var(--primary-navy);" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Contact Form -->
+      <div>
+        <div class="form-card-container">
+          <h2 style="font-size: 1.55rem; color: var(--primary-navy); margin-bottom: 6px;">
+            Send Us a Message
+          </h2>
+          <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 22px;">
+            Fill out the form below and our administrative secretariat will get back to you promptly.
+          </p>
+
+          <form action="{{ url_for('contact') }}" method="POST" class="needs-validation" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="contact_name">Your Full Name <span class="req">*</span></label>
+              <input type="text" id="contact_name" name="name" class="form-control" placeholder="e.g. Madhurima Bag" value="{{ form_data.get('name', '') }}" required>
+            </div>
+
+            <div class="form-grid-two">
+              <div class="form-group">
+                <label class="form-label" for="contact_email">Email Address <span class="req">*</span></label>
+                <input type="email" id="contact_email" name="email" class="form-control" placeholder="e.g. yourname@example.com" value="{{ form_data.get('email', '') }}" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact_phone">Phone Number</label>
+                <input type="tel" id="contact_phone" name="phone" class="form-control" placeholder="e.g. +91 9876543210" value="{{ form_data.get('phone', '') }}">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact_subject">Subject</label>
+              <input type="text" id="contact_subject" name="subject" class="form-control" placeholder="e.g. Admission / Verification Query / Hostel Details" value="{{ form_data.get('subject', '') }}">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact_message">Your Message <span class="req">*</span></label>
+              <textarea id="contact_message" name="message" class="form-control" rows="5" placeholder="Write your enquiry or feedback in detail here..." required>{{ form_data.get('message', '') }}</textarea>
+            </div>
+
+            <button type="submit" class="btn-primary-blue" style="width: 100%; justify-content: center; font-size: 0.95rem;">
+              Send Message <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Google Maps Interactive Embed Section -->
+    <div id="campus-location-map" style="margin-top: 50px;">
+      <h3 style="font-size: 1.35rem; color: var(--primary-navy); margin-bottom: 8px;">
+        <i class="fa-solid fa-map-location-dot" style="color: var(--secondary-blue);"></i> Campus Location on Map
+      </h3>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">
+        Located 3 km from Midnapore Railway Station and central bus stand with convenient local e-rickshaw, auto, and bus connectivity.
+      </p>
+      
+      <div class="map-embed-wrapper">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14757.77884218318!2d87.2950!3d22.4215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1d447a1645e7e7%3A0x633b49ec8e54736f!2sRaja%20Narendra%20Lal%20Khan%20Women&#39;s%20College!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+          width="100%"
+          height="380"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Google Map Location of Raja Narendra Lal Khan Women's College, Medinipur">
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

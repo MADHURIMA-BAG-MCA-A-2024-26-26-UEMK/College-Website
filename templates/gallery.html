@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Photo &amp; Media Gallery | Raja Narendra Lal Khan Women's College{% endblock %}
+
+{% block content %}
+<!-- Page Banner -->
+<section class="page-banner" aria-label="Page Title Banner">
+  <div class="container">
+    <div class="banner-content">
+      <h1 class="banner-title">Campus &amp; Event Gallery</h1>
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <a href="{{ url_for('index') }}">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+        <span class="active">Gallery</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Moments in Frames</span>
+      <h2 class="section-title">Life at Gope Palace Campus</h2>
+      <div class="heading-underline-blue"></div>
+      <p class="section-subtitle">
+        Explore snapshots of academic milestones, cultural festivals, athletic tournaments, and student life across our historic campus.
+      </p>
+    </div>
+
+    <!-- Category Filter Buttons -->
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 35px;" role="tablist" aria-label="Gallery Category Tabs">
+      {% for cat in categories %}
+        <button class="notice-cat-btn gallery-filter-btn {% if cat == 'All' %}active{% endif %}" data-category="{{ cat }}" role="tab">
+          {{ cat }}
+        </button>
+      {% endfor %}
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" id="galleryGrid">
+      {% for item in gallery_items %}
+        <div class="gallery-item-card" data-category="{{ item.category }}" data-image="{{ url_for('static', filename=item.image) }}" data-title="{{ item.title }}" data-caption="{{ item.caption }}" role="button" tabindex="0" aria-label="View photo: {{ item.title }}">
+          <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.title }}" class="gallery-thumb-img" loading="lazy">
+          <div class="gallery-hover-overlay">
+            <div class="gallery-zoom-icon">
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+            <span class="gallery-category-pill">{{ item.category }}</span>
+            <h3 class="gallery-caption-title">{{ item.title }}</h3>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="lightbox-close-btn" id="lightboxClose" aria-label="Close Lightbox">&times;</button>
+  <button class="lightbox-nav-btn lightbox-prev-btn" id="lightboxPrev" aria-label="Previous Image">
+    <i class="fa-solid fa-chevron-left"></i>
+  </button>
+  <button class="lightbox-nav-btn lightbox-next-btn" id="lightboxNext" aria-label="Next Image">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
+  
+  <div class="lightbox-content-wrap">
+    <img src="" alt="" class="lightbox-img" id="lightboxImg">
+    <div class="lightbox-caption-text" id="lightboxCaption"></div>
+  </div>
+</div>
+{% endblock %}

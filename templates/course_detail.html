@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}{{ course.name }} - {{ course.full_name }} | Raja Narendra Lal Khan Women's College{% endblock %}
+
+{% block content %}
+<!-- Page Banner -->
+<section class="page-banner" aria-label="Page Title Banner">
+  <div class="container">
+    <div class="banner-content">
+      <span style="display: inline-block; background: rgba(255, 255, 255, 0.2); padding: 3px 10px; border-radius: 4px; font-size: 0.8rem; margin-bottom: 8px;">
+        {{ course.level }}
+      </span>
+      <h1 class="banner-title">{{ course.name }}: {{ course.full_name }}</h1>
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <a href="{{ url_for('index') }}">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+        <a href="{{ url_for('courses') }}">Courses</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+        <span class="active">{{ course.name }}</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- Course Details Content -->
+<section class="about-section-block">
+  <div class="container">
+    <div class="content-image-split">
+      <div>
+        <span class="section-label">Program Overview</span>
+        <h2 style="font-size: 1.85rem; color: var(--primary-navy); margin-bottom: 14px;">
+          About the {{ course.name }} Program
+        </h2>
+        <div class="heading-underline-blue" style="margin-left: 0;"></div>
+
+        <p class="about-body-text">
+          {{ course.overview }}
+        </p>
+
+        <!-- Key Metrics Cards -->
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0;">
+          <div style="background: var(--light-bg); padding: 14px; border-radius: var(--border-radius-sm); border-left: 3px solid var(--secondary-blue);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Duration</div>
+            <div style="font-size: 1rem; font-weight: 700; color: var(--primary-navy);">{{ course.duration }}</div>
+          </div>
+          <div style="background: var(--light-bg); padding: 14px; border-radius: var(--border-radius-sm); border-left: 3px solid #059669;">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Sanctioned Intake</div>
+            <div style="font-size: 1rem; font-weight: 700; color: var(--primary-navy);">{{ course.seats }} Seats</div>
+          </div>
+          <div style="background: var(--light-bg); padding: 14px; border-radius: var(--border-radius-sm); border-left: 3px solid var(--accent-gold);">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Tuition (Semester)</div>
+            <div style="font-size: 1rem; font-weight: 700; color: var(--primary-navy);">{{ course.fees_per_sem }}</div>
+          </div>
+        </div>
+
+        <!-- Eligibility Box -->
+        <div style="background: #FFFBEB; border: 1px solid #FDE68A; padding: 18px; border-radius: var(--border-radius-sm); margin-bottom: 26px;">
+          <h3 style="font-size: 1rem; color: #92400E; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-clipboard-check"></i> Eligibility Criteria
+          </h3>
+          <p style="font-size: 0.88rem; color: #78350F; margin: 0; line-height: 1.5;">
+            {{ course.eligibility }}
+          </p>
+        </div>
+
+        <!-- Complete Curriculum Syllabus Modules -->
+        <h3 style="font-size: 1.3rem; color: var(--primary-navy); margin-bottom: 12px;">Curriculum &amp; Module Structure</h3>
+        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px;">
+          {% for subject in course.curriculum %}
+            <li style="font-size: 0.88rem; background: #FFFFFF; border: 1px solid var(--border-color); padding: 10px 14px; border-radius: 6px; display: flex; align-items: center; gap: 8px;">
+              <i class="fa-solid fa-circle-check" style="color: #059669; font-size: 0.8rem;"></i>
+              <span>{{ subject }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <!-- Career Prospects -->
+        <h3 style="font-size: 1.3rem; color: var(--primary-navy); margin-bottom: 12px;">Future Career Opportunities</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+          {% for path in course.career_paths %}
+            <span style="font-size: 0.85rem; background: var(--pastel-blue); color: var(--secondary-blue); font-weight: 600; padding: 6px 14px; border-radius: 20px;">
+              <i class="fa-solid fa-briefcase" style="font-size: 0.75rem; margin-right: 5px;"></i> {{ path }}
+            </span>
+          {% endfor %}
+        </div>
+
+        <!-- CTA Buttons -->
+        <div style="display: flex; gap: 16px;">
+          <a href="{{ url_for('admission') }}" class="btn-primary-blue">
+            Apply for {{ course.name }} Admission <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="{{ url_for('courses') }}" class="btn-read-more">
+            <i class="fa-solid fa-arrow-left"></i> All Courses
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Sidebar / Image -->
+      <div>
+        <div class="split-image-wrap" style="margin-bottom: 24px;">
+          <img src="{{ url_for('static', filename='images/academic-excellence.jpg') }}" alt="{{ course.name }} academic training">
+        </div>
+
+        <div style="background: var(--light-bg); border: 1px solid var(--border-color); border-radius: var(--border-radius-md); padding: 24px;">
+          <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-bottom: 12px;">
+            <i class="fa-solid fa-file-pdf" style="color: #EF4444; margin-right: 6px;"></i> Syllabus &amp; Prospectus
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">
+            Download the detailed syllabus guidelines, credit point structure, internal assessment norms, and prescribed bibliography for {{ course.name }}.
+          </p>
+          <a href="#" class="btn-primary-blue" style="width: 100%; justify-content: center; font-size: 0.85rem;" onclick="alert('Downloading {{ course.name }} Complete Autonomous Syllabus (NEP Curriculum)...'); return false;">
+            Download Syllabus (PDF) <i class="fa-solid fa-download"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

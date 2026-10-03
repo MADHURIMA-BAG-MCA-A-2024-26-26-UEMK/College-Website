@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}Academic Courses &amp; Programs | Raja Narendra Lal Khan Women's College{% endblock %}
+
+{% block content %}
+<!-- Page Banner -->
+<section class="page-banner" aria-label="Page Title Banner">
+  <div class="container">
+    <div class="banner-content">
+      <h1 class="banner-title">Our Academic Courses</h1>
+      <nav class="breadcrumbs" aria-label="Breadcrumb navigation">
+        <a href="{{ url_for('index') }}">Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i>
+        <span class="active">Courses</span>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- Courses Listing Section -->
+<section class="courses-page-section">
+  <div class="container">
+    <div class="section-header-center">
+      <span class="section-label">Degrees &amp; Certifications</span>
+      <h2 class="section-title">Undergraduate, Postgraduate &amp; Professional Programs</h2>
+      <div class="heading-underline-blue"></div>
+      <p class="section-subtitle">
+        Curriculums engineered under the National Education Policy (NEP) framework and autonomous flexibility, blending intellectual depth with pragmatic career skills.
+      </p>
+    </div>
+
+    <div class="courses-detailed-container">
+      {% for key, course in courses.items() %}
+        <div class="course-detailed-card" id="{{ course.slug }}">
+          <div>
+            <div class="course-header-badge">
+              <span class="badge-course-level">{{ course.level }}</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);"><i class="fa-regular fa-clock"></i> {{ course.duration }}</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);"><i class="fa-solid fa-chair"></i> {{ course.seats }} Sanctioned Seats</span>
+            </div>
+
+            <h2 class="course-detailed-title">
+              {{ course.name }} &mdash; {{ course.full_name }}
+            </h2>
+
+            <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+              {{ course.overview }}
+            </p>
+
+            <!-- Key Info Box -->
+            <div class="course-key-meta">
+              <div class="meta-box">
+                <i class="fa-solid fa-user-check" style="color: var(--secondary-blue); margin-right: 5px;"></i>
+                <strong>Eligibility:</strong> {{ course.eligibility }}
+              </div>
+            </div>
+
+            <!-- Curriculum Highlights -->
+            <div>
+              <div style="font-size: 0.8rem; font-weight: 700; color: var(--primary-navy); margin-bottom: 6px;">Key Curriculum Highlights:</div>
+              <div class="curriculum-tags">
+                {% for item in course.curriculum[:5] %}
+                  <span class="curr-tag"><i class="fa-solid fa-check" style="color: #059669; font-size: 0.65rem;"></i> {{ item }}</span>
+                {% endfor %}
+              </div>
+            </div>
+
+            <!-- Career Paths -->
+            <div style="margin-top: 14px;">
+              <div style="font-size: 0.8rem; font-weight: 700; color: var(--primary-navy); margin-bottom: 6px;">Career Pathways:</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                {% for career in course.career_paths[:4] %}
+                  <span style="font-size: 0.75rem; color: var(--secondary-blue); background: var(--pastel-blue); padding: 2px 8px; border-radius: 4px; font-weight: 600;">
+                    &bull; {{ career }}
+                  </span>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Action Sidebar -->
+          <div class="course-action-sidebar">
+            <div class="fees-display">
+              <span class="fees-amount">{{ course.fees_per_sem }}</span>
+              <div class="fees-period">Per Semester Tuition</div>
+            </div>
+
+            <a href="{{ url_for('course_detail', course_name=course.slug) }}" class="btn-primary-blue" style="width: 100%; justify-content: center; margin-bottom: 10px;">
+              View Details <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="{{ url_for('admission') }}" class="btn-outline-white" style="width: 100%; justify-content: center; color: var(--primary-navy); border-color: var(--primary-navy);">
+              Apply Online <i class="fa-solid fa-pen-nib"></i>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

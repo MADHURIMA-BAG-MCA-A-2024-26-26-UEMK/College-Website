@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Raja Narendra Lal Khan Women's College | Medinipur{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Official portal of Raja Narendra Lal Khan Women's College (Autonomous), Gope Palace, Medinipur, West Bengal. Established 1957, NAAC A Grade accredited premier institution for women's higher education.{% endblock %}">
+  <meta name="keywords" content="Raja Narendra Lal Khan Women's College, RNLKWC, Medinipur College, Women's College West Bengal, Gope Palace, BCA, MCA, B.Ed, Vidyasagar University, autonomous college Medinipur">
+  <meta name="author" content="Raja Narendra Lal Khan Women's College">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+  <!-- =====================================================================
+       1. TOP HEADER BAR
+       ===================================================================== -->
+  <header class="top-header-bar" role="banner">
+    <div class="container">
+      <!-- Left Contact Info -->
+      <div class="top-bar-left">
+        <a href="tel:{{ college.phone }}" class="top-bar-item" title="Call College Helpline" aria-label="College Helpline Phone">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          <span>{{ college.phone }}</span>
+        </a>
+        <a href="mailto:{{ college.email }}" class="top-bar-item" title="Email College Office" aria-label="College Office Email">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+          <span>{{ college.email }}</span>
+        </a>
+      </div>
+
+      <!-- Right Links & Social Icons -->
+      <div class="top-bar-right">
+        <div class="top-links">
+          <a href="#" class="top-link student-login-trigger" role="button">
+            <i class="fa-solid fa-user-graduate" aria-hidden="true"></i> Student Login
+          </a>
+          <span class="top-bar-divider" aria-hidden="true"></span>
+          <a href="#" class="top-link faculty-login-trigger" role="button">
+            <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i> Faculty Login
+          </a>
+          <span class="top-bar-divider" aria-hidden="true"></span>
+          <a href="{{ url_for('admission') }}" class="top-link highlight">
+            <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Online Admission
+          </a>
+        </div>
+
+        <span class="top-bar-divider" aria-hidden="true"></span>
+
+        <div class="top-social-links" aria-label="College Social Channels">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-top" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-top" aria-label="Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-top" aria-label="YouTube">
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       2. MAIN NAVIGATION BAR
+       ===================================================================== -->
+  <nav class="main-navbar" aria-label="Main Site Navigation">
+    <div class="container">
+      <!-- College Logo & Name -->
+      <a href="{{ url_for('index') }}" class="navbar-brand" title="Raja Narendra Lal Khan Women's College Home">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Raja Narendra Lal Khan Women's College Official Seal" class="brand-logo-img">
+        <div class="brand-text">
+          <span class="brand-college-name">
+            Raja Narendra Lal Khan<br>Women's College
+          </span>
+          <span class="brand-college-sub">
+            Medinipur, West Bengal &bull; Autonomous (NAAC A Grade)
+          </span>
+        </div>
+      </a>
+
+      <!-- Mobile Navigation Hamburger Toggle -->
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <!-- Navigation Menu -->
+      <ul class="navbar-nav" id="navbarMenu" role="menubar">
+        <li class="nav-item" role="none">
+          <a href="{{ url_for('index') }}" class="nav-link {% if active_page == 'home' %}active{% endif %}" role="menuitem">
+            Home
+          </a>
+        </li>
+
+        <!-- About Dropdown -->
+        <li class="nav-item dropdown" role="none">
+          <a href="{{ url_for('about') }}" class="nav-link {% if active_page == 'about' %}active{% endif %}" role="menuitem" aria-haspopup="true">
+            About <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="none"><a href="{{ url_for('about') }}#about-college" class="dropdown-item" role="menuitem">About College</a></li>
+            <li role="none"><a href="{{ url_for('about') }}#principal-message" class="dropdown-item" role="menuitem">Principal's Message</a></li>
+            <li role="none"><a href="{{ url_for('about') }}#vision-mission" class="dropdown-item" role="menuitem">Vision & Mission</a></li>
+            <li role="none"><a href="{{ url_for('about') }}#infrastructure" class="dropdown-item" role="menuitem">Infrastructure</a></li>
+          </ul>
+        </li>
+
+        <!-- Departments Dropdown -->
+        <li class="nav-item dropdown" role="none">
+          <a href="{{ url_for('departments') }}" class="nav-link {% if active_page == 'departments' %}active{% endif %}" role="menuitem" aria-haspopup="true">
+            Departments <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </a>
+          <ul class="dropdown-menu wide-dropdown" role="menu">
+            <li role="none"><a href="{{ url_for('departments') }}#computer-science" class="dropdown-item" role="menuitem">Computer Science</a></li>
+            <li role="none"><a href="{{ url_for('departments') }}#bengali" class="dropdown-item" role="menuitem">Bengali</a></li>
+            <li role="none"><a href="{{ url_for('departments') }}#english" class="dropdown-item" role="menuitem">English</a></li>
+            <li role="none"><a href="{{ url_for('departments') }}#history" class="dropdown-item" role="menuitem">History</a></li>
+            <li role="none"><a href="{{ url_for('departments') }}#geography" class="dropdown-item" role="menuitem">Geography</a></li>
+            <li role="none"><a href="{{ url_for('departments') }}#education" class="dropdown-item" role="menuitem">Education</a></li>
+            <li role="none"><a href="{{ url_for('departments') }}#commerce" class="dropdown-item" role="menuitem">Commerce</a></li>
+            <li role="none"><a href="{{ url_for('departments') }}#science" class="dropdown-item" role="menuitem">Science</a></li>
+          </ul>
+        </li>
+
+        <!-- Courses Dropdown -->
+        <li class="nav-item dropdown" role="none">
+          <a href="{{ url_for('courses') }}" class="nav-link {% if active_page == 'courses' %}active{% endif %}" role="menuitem" aria-haspopup="true">
+            Courses <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="none"><a href="{{ url_for('course_detail', course_name='bca') }}" class="dropdown-item" role="menuitem">BCA</a></li>
+            <li role="none"><a href="{{ url_for('course_detail', course_name='mca') }}" class="dropdown-item" role="menuitem">MCA</a></li>
+            <li role="none"><a href="{{ url_for('course_detail', course_name='bed') }}" class="dropdown-item" role="menuitem">B.Ed</a></li>
+            <li role="none"><a href="{{ url_for('course_detail', course_name='ba') }}" class="dropdown-item" role="menuitem">BA</a></li>
+            <li role="none"><a href="{{ url_for('course_detail', course_name='bsc') }}" class="dropdown-item" role="menuitem">B.Sc</a></li>
+            <li role="none"><a href="{{ url_for('course_detail', course_name='other-courses') }}" class="dropdown-item" role="menuitem">Other Courses</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item" role="none">
+          <a href="{{ url_for('faculty') }}" class="nav-link {% if active_page == 'faculty' %}active{% endif %}" role="menuitem">
+            Faculty & Staff
+          </a>
+        </li>
+
+        <!-- Admission Dropdown -->
+        <li class="nav-item dropdown" role="none">
+          <a href="{{ url_for('admission') }}" class="nav-link {% if active_page == 'admission' %}active{% endif %}" role="menuitem" aria-haspopup="true">
+            Admission <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li role="none"><a href="{{ url_for('admission') }}#admission-process" class="dropdown-item" role="menuitem">Admission Process</a></li>
+            <li role="none"><a href="{{ url_for('admission') }}#eligibility" class="dropdown-item" role="menuitem">Eligibility</a></li>
+            <li role="none"><a href="{{ url_for('admission') }}#fees-structure" class="dropdown-item" role="menuitem">Fees Structure</a></li>
+            <li role="none"><a href="{{ url_for('admission') }}#enquiry-form" class="dropdown-item" role="menuitem">Apply Online</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item" role="none">
+          <a href="{{ url_for('notices') }}" class="nav-link {% if active_page == 'notices' %}active{% endif %}" role="menuitem">
+            Notice Board
+          </a>
+        </li>
+
+        <li class="nav-item" role="none">
+          <a href="{{ url_for('gallery') }}" class="nav-link {% if active_page == 'gallery' %}active{% endif %}" role="menuitem">
+            Gallery
+          </a>
+        </li>
+
+        <li class="nav-item" role="none">
+          <a href="{{ url_for('contact') }}" class="nav-link {% if active_page == 'contact' %}active{% endif %}" role="menuitem">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Flash Notification Messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="container" style="margin-top: 20px;">
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}" role="alert">
+            <i class="fa-solid {% if category == 'success' %}fa-circle-check{% elif category == 'danger' %}fa-circle-exclamation{% else %}fa-circle-info{% endif %}"></i>
+            <div>{{ message }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <!-- =====================================================================
+       MAIN PAGE CONTENT
+       ===================================================================== -->
+  <main id="mainContent">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- =====================================================================
+       8. MASTER FOOTER
+       ===================================================================== -->
+  <footer class="main-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top-row">
+        <!-- Left: Logo & College Identity -->
+        <div class="footer-brand">
+          <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Raja Narendra Lal Khan Women's College Seal" class="footer-logo-img">
+          <div>
+            <h3 class="footer-brand-title">Raja Narendra Lal Khan Women's College</h3>
+            <p class="footer-brand-loc">
+              <i class="fa-solid fa-location-dot" style="color: var(--accent-gold); margin-right: 5px;"></i>
+              {{ college.location }}
+            </p>
+            <p class="footer-brand-status">
+              {{ college.status }} &bull; Estd. {{ college.established }}
+            </p>
+          </div>
+        </div>
+
+        <!-- Center: Quick Nav Links -->
+        <div class="footer-nav-center">
+          <h4 class="footer-nav-title">Quick Navigation</h4>
+          <div class="footer-nav-links">
+            <a href="{{ url_for('index') }}" class="footer-nav-link">Home</a>
+            <span class="footer-nav-sep">|</span>
+            <a href="{{ url_for('about') }}" class="footer-nav-link">About</a>
+            <span class="footer-nav-sep">|</span>
+            <a href="{{ url_for('departments') }}" class="footer-nav-link">Departments</a>
+            <span class="footer-nav-sep">|</span>
+            <a href="{{ url_for('courses') }}" class="footer-nav-link">Courses</a>
+            <span class="footer-nav-sep">|</span>
+            <a href="{{ url_for('admission') }}" class="footer-nav-link">Admission</a>
+            <span class="footer-nav-sep">|</span>
+            <a href="{{ url_for('notices') }}" class="footer-nav-link">Notice Board</a>
+            <span class="footer-nav-sep">|</span>
+            <a href="{{ url_for('gallery') }}" class="footer-nav-link">Gallery</a>
+            <span class="footer-nav-sep">|</span>
+            <a href="{{ url_for('contact') }}" class="footer-nav-link">Contact</a>
+          </div>
+        </div>
+
+        <!-- Right: Social & Quick Helpline -->
+        <div class="footer-contact-right">
+          <h4 class="footer-nav-title">Connect With Us</h4>
+          <div class="footer-social-list">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-footer" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-footer" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-footer" aria-label="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+          <div class="footer-mini-contact">
+            <p><i class="fa-solid fa-phone"></i> {{ college.phone }}</p>
+            <p><i class="fa-solid fa-envelope"></i> {{ college.email }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <p>&copy; {{ college.current_year }} {{ college.name }}. All Rights Reserved.</p>
+        <p>Affiliated to Vidyasagar University &bull; Approved by UGC &amp; NCTE</p>
+      </div>
+    </div>
+
+    <!-- Floating Back to Top Button -->
+    <button class="back-to-top-btn" id="backToTopBtn" title="Back to Top" aria-label="Back to Top">
+      <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+    </button>
+  </footer>
+
+  <!-- =====================================================================
+       LOGIN MODAL (Student & Faculty ERP)
+       ===================================================================== -->
+  <div class="auth-modal" id="authModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="auth-card">
+      <div class="auth-header">
+        <button class="auth-close" id="authClose" aria-label="Close modal">&times;</button>
+        <h3 class="auth-title" id="authTitle">Institutional ERP Portal</h3>
+        <p class="auth-sub" id="authSubtitle">Please enter your authorized credentials to sign in</p>
+      </div>
+      <div class="auth-body">
+        <form id="authLoginForm">
+          <input type="hidden" id="authRoleInput" value="student">
+          <div class="form-group">
+            <label class="form-label" for="authUsername">User ID / University Registration No.</label>
+            <input type="text" id="authUsername" class="form-control" placeholder="e.g. RNLK2026/0482" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="authPassword">Password</label>
+            <input type="password" id="authPassword" class="form-control" placeholder="••••••••" required>
+          </div>
+          <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+            <label style="font-size: 0.8rem; display: flex; align-items: center; gap: 6px; cursor: pointer;">
+              <input type="checkbox" checked> Remember Me
+            </label>
+            <a href="#" style="font-size: 0.8rem;" onclick="alert('Please contact the College IT Helpdesk at support@college.ac.in for password reset assistance.'); return false;">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn-primary-blue" style="width: 100%; justify-content: center; margin-top: 10px;">
+            Sign In to Portal <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master JavaScript -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  {% block extra_js %}{% endblock %}
+
+</body>
+</html>
