@@ -1,3 +1,8 @@
+##   Deploy link  ======
+
+https://college-website-seven-liard.vercel.app/
+
+
 # Raja Narendra Lal Khan Women's College (Autonomous), Medinipur
 ### Official Institutional Web Portal
 
